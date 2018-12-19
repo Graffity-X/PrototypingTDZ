@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         m_photonView = GetComponent<PhotonView>();
         m_camera = GameObject.FindWithTag("MainCamera").transform;
-        if(m_photonView.isMine)
+        if (m_photonView.isMine)
             HitPosition = Instantiate(HitPosition, transform.position, transform.rotation);
     }
     void Update()

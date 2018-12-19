@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitTDZ : MonoBehaviour {
+public class InitTDZ : MonoBehaviour
+{
     [SerializeField] GameObject[] CreateObj;
     // Use this for initialization
     void Start()
@@ -14,7 +15,8 @@ public class InitTDZ : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 }

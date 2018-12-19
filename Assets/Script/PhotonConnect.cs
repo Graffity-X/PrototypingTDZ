@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PhotonConnect : MonoBehaviour
 {
-    [SerializeField] GameObject Player,Atacker,debugEnemy;
+    [SerializeField] GameObject Player, Atacker, debugEnemy;
     int RoomCount = 0;
- 
+
     void Start()
     {
         // Photonに接続する(引数でゲームのバージョンを指定できる)
@@ -40,7 +40,7 @@ public class PhotonConnect : MonoBehaviour
         }
 
 
-        else if(PhotonNetwork.countOfPlayersInRooms == 1)
+        else if (PhotonNetwork.countOfPlayersInRooms == 1)
         {
             PhotonNetwork.Instantiate(Atacker.name, new Vector3(0, 0, 0), transform.rotation, 0);
 

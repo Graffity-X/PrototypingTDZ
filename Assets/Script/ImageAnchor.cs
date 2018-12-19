@@ -34,7 +34,7 @@ public class ImageAnchor : MonoBehaviour
 
             imageAnchorGO = Instantiate<GameObject>(prefabToGenerate, position, rotation);
             // アンカーで生成されたら非表示オブジェクトを表示
-            foreach(GameObject g in ActiveObjs)
+            foreach (GameObject g in ActiveObjs)
             {
                 g.SetActive(true);
             }

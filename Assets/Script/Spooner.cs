@@ -17,7 +17,8 @@ public class Spooner : MonoBehaviour {
 
     // Use this for initialization
 
-	void Start () {
+	void Start ()
+    {
         GameMaster.Instance.MaxEnemy = MaxEnemy;
         StartCoroutine(SpooneEnemy());
         m_photonView = GetComponent<PhotonView>();

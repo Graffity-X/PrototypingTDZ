@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.iOS;
 
-public class SetOrigin : MonoBehaviour {
+public class SetOrigin : MonoBehaviour
+{
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         UnityARSessionNativeInterface.GetARSessionNativeInterface().SetWorldOrigin(transform);
 
 

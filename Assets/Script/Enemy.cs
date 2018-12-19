@@ -14,9 +14,9 @@ public class Enemy : MonoBehaviour {
         m_agent = GetComponent<NavMeshAgent>();
         m_photonView = GetComponent<PhotonView>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		if(PhotonNetwork.isMasterClient)
         {
             m_agent.SetDestination(GameMaster.Instance.Player.transform.position);

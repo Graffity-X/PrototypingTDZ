@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameMaster : SingletonMonoBehaviour<GameMaster> {
+public class GameMaster : SingletonMonoBehaviour<GameMaster>
+{
     public GameObject Player;
     [System.NonSerialized]
     public int MaxEnemy;
-    
+
 
     [System.NonSerialized]
     public int EnemyCounts = 0;
@@ -22,19 +23,21 @@ public class GameMaster : SingletonMonoBehaviour<GameMaster> {
 
     public bool CanAtack = true;
 
-    [SerializeField] Text LifeText,ScoreText;
+    [SerializeField] Text LifeText, ScoreText;
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Life = MaxLife;
         LifeText.text = "Life " + Life.ToString();
         ScoreText.text = "Score " + Score.ToString();
     }
-    
+
     // Update is called once per frame
-    void Update () {
-        
+    void Update()
+    {
+
     }
 
     IEnumerator NonAtack()
@@ -45,7 +48,7 @@ public class GameMaster : SingletonMonoBehaviour<GameMaster> {
             yield return new WaitForSeconds(NonAtackedTime);
             CanAtack = true;
         }
-        
+
     }
 
     public void NonAtackCoroutine()
