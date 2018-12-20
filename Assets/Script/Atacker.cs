@@ -13,14 +13,15 @@ public class Atacker : MonoBehaviour
 
     public Vector3 HitGroundPosition;
 
-    [SerializeField] GameObject HitPosition;
+    [SerializeField] private GameObject HitPositionObj;
+    private GameObject HitPosition;
 
     void Start()
     {
         m_photonView = GetComponent<PhotonView>();
         m_camera = GameObject.FindWithTag("MainCamera").transform;
         if (m_photonView.isMine)
-            HitPosition = Instantiate(HitPosition, transform.position, transform.rotation);
+            HitPosition = Instantiate(HitPositionObj, transform.position, transform.rotation);
     }
     void Update()
     {
