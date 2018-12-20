@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
+using System;
 
 public class Bomb : MonoBehaviour
 {
@@ -12,7 +14,13 @@ public class Bomb : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(Timer(StartTime));
+        Observable.Timer(TimeSpan.FromSeconds(StartTime)).Subscribe(_ =>
+        {
+            // StartTime 後　発火
+            Instantiate(BombColider, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        ).AddTo(this);
     }
 
     // Update is called once per frame
@@ -20,15 +28,5 @@ public class Bomb : MonoBehaviour
     {
 
     }
-
-    IEnumerator Timer(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Instantiate(BombColider, transform.position, transform.rotation);
-        Destroy(gameObject);
-
-
-    }
-
 
 }

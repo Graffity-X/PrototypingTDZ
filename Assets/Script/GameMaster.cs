@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UniRx;
+using System;
 
 public class GameMaster : SingletonMonoBehaviour<GameMaster>
 {
@@ -40,21 +42,18 @@ public class GameMaster : SingletonMonoBehaviour<GameMaster>
 
     }
 
-    IEnumerator NonAtack()
+    public void NonAtackCoroutine()
+
     {
         if (CanAtack)
         {
             CanAtack = false;
-            yield return new WaitForSeconds(NonAtackedTime);
-            CanAtack = true;
+            Observable.Timer(TimeSpan.FromSeconds(NonAtackedTime)).Subscribe(_ =>
+            {
+                CanAtack = true;
+                // NonAtacktime秒の間アタックできない
+            }).AddTo(this);
         }
-
-    }
-
-    public void NonAtackCoroutine()
-
-    {
-        StartCoroutine(NonAtack());
     }
 
     public void Damage()
